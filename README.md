@@ -11,3 +11,9 @@ You can run your application in dev mode that enables live coding using:
 ```shell script
 mvn quarkus:dev
 ```
+
+## Code formatting
+
+```shell script
+mvn spotless::apply
+```
