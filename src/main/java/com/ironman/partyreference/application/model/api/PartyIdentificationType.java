@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum PartyIdentificationType {
+public enum PartyIdentificationType implements ValueEnum {
   CARNE_EXTRANJERIA("CarneExtranjeria"),
 
   CARNE_IDENTIDAD("CarneIdentidad"),
@@ -23,9 +23,4 @@ public enum PartyIdentificationType {
   REGISTRO_UNICO_CONTRIBUYENTE("RegistroUnicoContribuyente");
 
   private final String value;
-
-  @Override
-  public String toString() {
-    return value;
-  }
 }

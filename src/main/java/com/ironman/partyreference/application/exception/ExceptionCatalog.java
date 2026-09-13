@@ -1,6 +1,7 @@
 package com.ironman.partyreference.application.exception;
 
 import com.ironman.partyreference.application.exception.ApplicationException.ExceptionType;
+import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -14,19 +15,20 @@ public enum ExceptionCatalog {
   APPLICATION_ERROR(
       "PRS0002",
       ExceptionType.INTERNAL_SERVER_ERROR,
-      "An unexpected error occurred, please try again later.");
+      "An unexpected error occurred, please try again later."),
+  CUSTOMER_NOT_FOUND(
+      "PRS0003", ExceptionType.NOT_FOUND, "Customer not found for document number: %s"),
+  VALIDATION_ERROR("PRS0004", ExceptionType.BAD_REQUEST, "One or more fields are invalid.");
 
   private final String code;
   private final ExceptionType exceptionType;
   private final String message;
 
   public ApplicationException buildException(Object... args) {
-    String formattedMessage = String.format(message, args);
+    return new ApplicationException(code, exceptionType, String.format(message, args));
+  }
 
-    return ApplicationException.builder()
-        .code(code)
-        .exceptionType(exceptionType)
-        .message(formattedMessage)
-        .build();
+  public ApplicationException buildException(List<String> details) {
+    return new ApplicationException(code, exceptionType, details);
   }
 }

@@ -5,10 +5,19 @@ import static com.ironman.partyreference.application.model.api.DirectoryEntryDat
 import static com.ironman.partyreference.application.model.api.DirectoryEntryDateType.FECHA_MODIFICACION;
 import static com.ironman.partyreference.application.util.Constants.CUSTOMER_TYPE_NATURAL_PERSON;
 
-import com.ironman.partyreference.application.model.api.*;
+import com.ironman.partyreference.application.model.api.DirectoryEntryDate;
+import com.ironman.partyreference.application.model.api.Identifier;
+import com.ironman.partyreference.application.model.api.PartyIdentification;
+import com.ironman.partyreference.application.model.api.PartyName;
+import com.ironman.partyreference.application.model.api.PartyReference;
+import com.ironman.partyreference.application.model.api.PartyReferenceRetrieve;
 import com.ironman.partyreference.application.model.entity.CustomerEntity;
 import java.util.List;
-import org.mapstruct.*;
+import org.mapstruct.InjectionStrategy;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.Named;
 
 @Mapper(
     componentModel = MappingConstants.ComponentModel.JAKARTA_CDI,

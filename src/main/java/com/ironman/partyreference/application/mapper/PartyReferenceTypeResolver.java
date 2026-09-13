@@ -6,6 +6,7 @@ import static com.ironman.partyreference.application.util.AppUtils.isNullOrBlank
 import com.ironman.partyreference.application.config.PartyReferenceProperties;
 import com.ironman.partyreference.application.model.api.PartyIdentificationType;
 import com.ironman.partyreference.application.model.api.PartyType;
+import com.ironman.partyreference.application.model.api.ValueEnum;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Arrays;
 import java.util.List;
@@ -38,12 +39,12 @@ public class PartyReferenceTypeResolver {
         .orElse(null);
   }
 
-  private <E extends Enum<E>> E findEnumByName(String name, E[] enumValues) {
+  private <E extends Enum<E> & ValueEnum> E findEnumByName(String name, E[] enumValues) {
     if (isNullOrBlank(name)) {
       return null;
     }
     return Arrays.stream(enumValues)
-        .filter(value -> name.equalsIgnoreCase(value.toString()))
+        .filter(e -> name.equalsIgnoreCase(e.getValue()))
         .findFirst()
         .orElse(null);
   }

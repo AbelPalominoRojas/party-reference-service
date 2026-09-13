@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum PartyType {
+public enum PartyType implements ValueEnum {
   PERSONA("Persona"),
 
   ORGANIZACION("Organizacion");

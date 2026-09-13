@@ -4,6 +4,7 @@ import com.ironman.partyreference.application.exception.ExceptionCatalog;
 import com.ironman.partyreference.application.model.entity.CustomerEntity;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.PersistenceException;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,7 +15,7 @@ public class CustomerRepository implements PanacheRepositoryBase<CustomerEntity,
   public Optional<CustomerEntity> findByDocumentNumber(String documentNumber) {
     try {
       return find("documentNumber", documentNumber).firstResultOptional();
-    } catch (Exception e) {
+    } catch (PersistenceException e) {
       log.error("CustomerRepository:findByDocumentNumber {}", e.getMessage(), e);
       throw ExceptionCatalog.DATABASE_ERROR.buildException();
     }
