@@ -16,8 +16,6 @@ public enum ExceptionCatalog {
       "PRS0002",
       ExceptionType.INTERNAL_SERVER_ERROR,
       "An unexpected error occurred, please try again later."),
-  CUSTOMER_NOT_FOUND(
-      "PRS0003", ExceptionType.NOT_FOUND, "Customer not found for document number: %s"),
   VALIDATION_ERROR("PRS0004", ExceptionType.BAD_REQUEST, "One or more fields are invalid.");
 
   private final String code;

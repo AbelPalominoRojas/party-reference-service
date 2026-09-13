@@ -1,7 +1,6 @@
 package com.ironman.partyreference.expose.web;
 
 import com.ironman.partyreference.application.business.CustomerService;
-import com.ironman.partyreference.application.exception.ExceptionCatalog;
 import com.ironman.partyreference.application.model.api.PartyReferenceQuery;
 import com.ironman.partyreference.application.model.api.PartyReferenceRetrieve;
 import com.ironman.partyreference.expose.validation.RequestValidator;
@@ -23,8 +22,7 @@ public class PartyReferenceController {
   public PartyReferenceRetrieve partyReferenceByDocumentNumber(
       @Name("documentNumber") String documentNumber) {
     requestValidator.validate(new PartyReferenceQuery(documentNumber));
-    return customerService
-        .partyReferenceByDocumentNumber(documentNumber)
-        .orElseThrow(() -> ExceptionCatalog.CUSTOMER_NOT_FOUND.buildException(documentNumber));
+
+    return customerService.partyReferenceByDocumentNumber(documentNumber).orElse(null);
   }
 }
