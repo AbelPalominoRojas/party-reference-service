@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +22,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Builder
 @Entity
 @Table(name = "customers")
-public class CustomerEntity implements Serializable {
+public class CustomerEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

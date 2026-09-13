@@ -32,9 +32,9 @@ public class PartyReferenceTypeResolver {
       return null;
     }
     return configuredTypes.stream()
-        .filter(type -> code.equalsIgnoreCase(type.getCode()))
+        .filter(type -> code.equalsIgnoreCase(type.code()))
         .findFirst()
-        .map(PartyReferenceType::getName)
+        .map(PartyReferenceType::name)
         .orElse(null);
   }
 

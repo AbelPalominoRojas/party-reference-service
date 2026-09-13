@@ -15,9 +15,9 @@ public interface PartyReferenceProperties {
 
   interface PartyReferenceType {
     @WithName("code")
-    String getCode();
+    String code();
 
     @WithName("name")
-    String getName();
+    String name();
   }
 }

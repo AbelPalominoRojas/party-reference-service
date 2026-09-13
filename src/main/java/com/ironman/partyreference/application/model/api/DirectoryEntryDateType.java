@@ -11,4 +11,9 @@ public enum DirectoryEntryDateType {
   FECHA_MODIFICACION("FechaModificacion");
 
   private final String value;
+
+  @Override
+  public String toString() {
+    return value;
+  }
 }

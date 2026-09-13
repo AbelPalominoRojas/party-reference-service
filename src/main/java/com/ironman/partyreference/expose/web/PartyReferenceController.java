@@ -16,7 +16,8 @@ public class PartyReferenceController {
 
   @Query("partyReference")
   @Description("Consultar un cliente por su identificador")
-  public PartyReferenceRetrieve partyReferenceById(@Name("partyId") String partyId) {
-    return customerService.partyReferenceById(partyId);
+  public PartyReferenceRetrieve partyReferenceByDocumentNumber(
+      @Name("documentNumber") String documentNumber) {
+    return customerService.partyReferenceByDocumentNumber(documentNumber).orElse(null);
   }
 }

@@ -1,7 +1,6 @@
 package com.ironman.partyreference.application.mapper;
 
 import static com.ironman.partyreference.application.model.api.PartyNameType.*;
-import static com.ironman.partyreference.application.model.api.PartyType.PERSONA;
 import static com.ironman.partyreference.application.util.AppUtils.joinNonBlank;
 
 import com.ironman.partyreference.application.model.api.*;
@@ -63,9 +62,5 @@ public class PartyReferenceBuilder {
 
   private static PartyName buildPartyName(String nameValue, PartyNameType nameType) {
     return new PartyName(nameType, nameValue);
-  }
-
-  private static PartyNameType resolvePrimaryNameType(PartyType partyType) {
-    return PERSONA == partyType ? NOMBRE : RAZON_SOCIAL;
   }
 }

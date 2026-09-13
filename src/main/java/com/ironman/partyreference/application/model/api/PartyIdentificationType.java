@@ -23,4 +23,9 @@ public enum PartyIdentificationType {
   REGISTRO_UNICO_CONTRIBUYENTE("RegistroUnicoContribuyente");
 
   private final String value;
+
+  @Override
+  public String toString() {
+    return value;
+  }
 }

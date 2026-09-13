@@ -33,6 +33,10 @@ quarkus:
   log:
     level: INFO # Nivel global de logs (puede ser DEBUG, INFO, WARN, ERROR, etc.)
 
+mp:
+  graphql:
+    showErrorMessage: com.ironman.partyreference.application.exception.ApplicationException
+
 party-reference:
   identification-types:
     - code: '1'
