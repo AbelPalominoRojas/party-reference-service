@@ -22,13 +22,14 @@ public enum ExceptionCatalog {
 
   private final String code;
   private final ExceptionType exceptionType;
-  private final String message;
+  private final String detail;
 
   public ApplicationException buildException(Object... args) {
-    return new ApplicationException(code, exceptionType, String.format(message, args));
+    var details = List.of(new ExceptionDetail(code, String.format(detail, args)));
+    return buildException(details);
   }
 
-  public ApplicationException buildException(List<String> details) {
-    return new ApplicationException(code, exceptionType, details);
+  public ApplicationException buildException(List<ExceptionDetail> details) {
+    return new ApplicationException(exceptionType.getGenericMessage(), exceptionType, details);
   }
 }

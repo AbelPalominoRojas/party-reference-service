@@ -2,24 +2,16 @@ package com.ironman.partyreference.application.exception;
 
 import java.util.List;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Getter
 public class ApplicationException extends RuntimeException {
-  private final String code;
+  private final String message;
   private final ExceptionType exceptionType;
-  private final List<String> details;
+  private final List<ExceptionDetail> details;
 
-  public ApplicationException(String code, ExceptionType exceptionType, String detail) {
-    this(code, exceptionType, List.of(detail));
-  }
-
-  public ApplicationException(String code, ExceptionType exceptionType, List<String> details) {
-    super(exceptionType.getGenericMessage());
-    this.code = code;
-    this.exceptionType = exceptionType;
-    this.details = details;
-  }
-
+  @RequiredArgsConstructor
   @Getter
   public enum ExceptionType {
     BAD_REQUEST(400, "Invalid input data. Verify format and values."),
@@ -30,10 +22,5 @@ public class ApplicationException extends RuntimeException {
 
     private final int statusCode;
     private final String genericMessage;
-
-    ExceptionType(int statusCode, String genericMessage) {
-      this.statusCode = statusCode;
-      this.genericMessage = genericMessage;
-    }
   }
 }

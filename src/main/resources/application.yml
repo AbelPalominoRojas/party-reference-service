@@ -34,8 +34,6 @@ quarkus:
     level: INFO # Nivel global de logs (puede ser DEBUG, INFO, WARN, ERROR, etc.)
 
   smallrye-graphql:
-    # Por defecto SmallRye no incluye ningún campo de extensions (ni siquiera los que agregan
-    # los ErrorExtensionProvider registrados) salvo que se listen aquí explícitamente.
     error-extension-fields: classification,exceptionDetails
 
 mp:
