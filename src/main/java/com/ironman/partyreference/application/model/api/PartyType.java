@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum PartyType implements ValueEnum {
-  PERSONA("Persona"),
+  PERSON("Person"),
 
-  ORGANIZACION("Organizacion");
+  ORGANISATION("Organisation");
 
   private final String value;
 }

@@ -6,17 +6,17 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum PartyNameType {
-  NOMBRE("Nombre"),
+  NAME("Name"),
 
-  APELLIDO_PATERNO("ApellidoPaterno"),
+  LAST_NAME_PATERNAL("LastNamePaternal"),
 
-  APELLIDO_MATERNO("ApellidoMaterno"),
+  LAST_NAME_MATERNAL("LastNameMaternal"),
 
-  RAZON_SOCIAL("RazonSocial"),
+  LEGAL_NAME("LegalName"),
 
-  NOMBRE_FANTASIA("NombreFantasia"),
+  TRADE_NAME("TradeName"),
 
-  NOMBRE_COMPLETO("NombreCompleto");
+  FULL_NAME("FullName");
 
   private final String value;
 }

@@ -25,7 +25,7 @@ public class PartyReferenceBuilder {
         createFirstNameEntry(customer.getName()),
         createPaternalSurnameEntry(customer.getPaternalSurname()),
         createMaternalSurnameEntry(customer.getMaternalSurname()),
-        buildPartyName(fullName, NOMBRE_COMPLETO));
+        buildPartyName(fullName, FULL_NAME));
   }
 
   public static List<PartyName> buildOrganizationNames(CustomerEntity customer) {
@@ -40,23 +40,23 @@ public class PartyReferenceBuilder {
   }
 
   private static PartyName createFirstNameEntry(String firstName) {
-    return buildPartyName(firstName, NOMBRE);
+    return buildPartyName(firstName, NAME);
   }
 
   private static PartyName createPaternalSurnameEntry(String paternalSurname) {
-    return buildPartyName(paternalSurname, APELLIDO_PATERNO);
+    return buildPartyName(paternalSurname, LAST_NAME_PATERNAL);
   }
 
   private static PartyName createMaternalSurnameEntry(String maternalSurname) {
-    return buildPartyName(maternalSurname, APELLIDO_MATERNO);
+    return buildPartyName(maternalSurname, LAST_NAME_MATERNAL);
   }
 
   private static PartyName createOrganizationNameEntry(String organizationName) {
-    return buildPartyName(organizationName, RAZON_SOCIAL);
+    return buildPartyName(organizationName, LEGAL_NAME);
   }
 
   private static PartyName createTradeNameEntry(String tradeName) {
-    return buildPartyName(tradeName, NOMBRE_FANTASIA);
+    return buildPartyName(tradeName, TRADE_NAME);
   }
 
   private static String joinNonBlankNames(String... nameParts) {

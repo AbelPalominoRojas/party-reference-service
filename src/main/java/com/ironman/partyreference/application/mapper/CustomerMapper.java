@@ -1,9 +1,8 @@
 package com.ironman.partyreference.application.mapper;
 
 import static com.ironman.partyreference.application.mapper.PartyReferenceBuilder.*;
-import static com.ironman.partyreference.application.model.api.DirectoryEntryDateType.FECHA_CREACION;
-import static com.ironman.partyreference.application.model.api.DirectoryEntryDateType.FECHA_MODIFICACION;
-import static com.ironman.partyreference.application.util.Constants.CUSTOMER_TYPE_NATURAL_PERSON;
+import static com.ironman.partyreference.application.model.api.DirectoryEntryDateType.*;
+import static com.ironman.partyreference.application.util.Constants.CUSTOMER_TYPE_PERSON;
 
 import com.ironman.partyreference.application.model.api.DirectoryEntryDate;
 import com.ironman.partyreference.application.model.api.Identifier;
@@ -44,7 +43,7 @@ public interface CustomerMapper {
 
   @Named("mapPartyNamesFromCustomer")
   default List<PartyName> mapPartyNamesFromCustomer(CustomerEntity customer) {
-    if (CUSTOMER_TYPE_NATURAL_PERSON.equalsIgnoreCase(customer.getCustomerType())) {
+    if (CUSTOMER_TYPE_PERSON.equalsIgnoreCase(customer.getCustomerType())) {
       return buildNaturalPersonNames(customer);
     }
     return buildOrganizationNames(customer);
@@ -53,7 +52,7 @@ public interface CustomerMapper {
   @Named("mapDirectoryEntryDates")
   default List<DirectoryEntryDate> mapDirectoryEntryDates(CustomerEntity customer) {
     return List.of(
-        buildDirectoryEntryDate(FECHA_CREACION, customer.getCreatedAt()),
-        buildDirectoryEntryDate(FECHA_MODIFICACION, customer.getUpdatedAt()));
+        buildDirectoryEntryDate(OPEN_DATE, customer.getCreatedAt()),
+        buildDirectoryEntryDate(REFRESH_DATE, customer.getUpdatedAt()));
   }
 }

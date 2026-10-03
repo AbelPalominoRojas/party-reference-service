@@ -6,5 +6,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Constants {
 
-  public static final String CUSTOMER_TYPE_NATURAL_PERSON = "P";
+  public static final String CUSTOMER_TYPE_PERSON = "P";
 }

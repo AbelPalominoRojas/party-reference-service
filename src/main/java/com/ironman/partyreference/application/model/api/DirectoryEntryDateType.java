@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum DirectoryEntryDateType {
-  FECHA_CREACION("FechaCreacion"),
+  OPEN_DATE("OpenDate"),
 
-  FECHA_MODIFICACION("FechaModificacion");
+  REFRESH_DATE("RefreshDate");
 
   private final String value;
 }

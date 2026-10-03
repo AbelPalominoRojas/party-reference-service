@@ -6,21 +6,13 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum PartyIdentificationType implements ValueEnum {
-  CARNE_EXTRANJERIA("CarneExtranjeria"),
+  IDENTITYCARDNUMBER("Identitycardnumber"),
 
-  CARNE_IDENTIDAD("CarneIdentidad"),
+  NATIONALREGISTRATIONIDENTIFICATIONNUMBER("Nationalregistrationidentificationnumber"),
 
-  DOCUMENTO_NACIONAL_IDENTIDAD("DocumentoNacionalIdentidad"),
+  PASSPORTNUMBER("Passportnumber"),
 
-  IDENTIFICADOR_FICTICIO("IdentificadorFicticio"),
-
-  IDENTIFICADOR_FICTICIO_MIGRACION("IdentificadorFicticioMigracion"),
-
-  LIBRETA_TRIBUTARIA("LibretaTributaria"),
-
-  PASAPORTE("Pasaporte"),
-
-  REGISTRO_UNICO_CONTRIBUYENTE("RegistroUnicoContribuyente");
+  REGISTRATIONAUTHORITYIDENTIFICATION("Registrationauthorityidentification");
 
   private final String value;
 }
